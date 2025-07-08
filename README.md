@@ -38,7 +38,7 @@ The web interface features:
 - Loading overlay with spinner and warning message
 - Styled result cards showing metadata and content excerpts
 
-For a minimal, standalone scraper script without FastAPI, see `basescript/scrapper_base.py` in the `basescript/` folder.
+For a minimal, standalone scraper script without FastAPI, see `basescript/scraper_base.py` in the `basescript/` folder.
 
 ## Installation of Script
 
@@ -57,7 +57,7 @@ For a minimal, standalone scraper script without FastAPI, see `basescript/scrapp
 
 Run the scraper and enter your search query (single or multi-word):
 ```powershell
-python basescript\scrapper_base.py
+python basescript\scraper_base.py
 ```
 
 The tool uses free proxy lists fetched from GitHub, so it can be relatively slow. If you need faster and more reliable scraping, consider using a paid proxy list and update the `fetch_proxies()` URL accordingly.

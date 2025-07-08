@@ -21,7 +21,6 @@ def fetch_proxies(proxy_url=None):
     Fetches proxy list from the given URL or uses the default source.
     """
     global proxy_list, proxy_index
-    # Default proxy list source
     default_url = "https://raw.githubusercontent.com/databay-labs/free-proxy-list/refs/heads/master/https.txt"
     url = proxy_url or default_url
     print(f"🚀 Fetching proxy list from: {url}")
