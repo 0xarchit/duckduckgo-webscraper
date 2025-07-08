@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .loader { border-top-color: #3498db; animation: spin 1s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  </style>
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="bg-gray-100">
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
+    <div class="text-center text-white">
+      <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4"></div>
+      <p class="font-bold">Loading, please wait...</p>
+      <p class="text-sm mt-2">Do not leave the page! This may take 5-15 minutes due to free proxy lists.</p>
+    </div>
+  </div>
+  <div class="container mx-auto p-4">
+    {% block content %}{% endblock %}
+  </div>
+  <script src="/static/js/scripts.js"></script>
+</body>
+</html>

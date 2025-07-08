@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results for {{ query }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+    <h1 class="text-2xl font-bold mb-4">Scrape Results visualization for "{{ query }}"</h1>
+
+    {% if error %}
+      <div class="text-red-600 font-semibold mb-4">Error: {{ error }}</div>
+    {% endif %}
+
+    {% if not results %}
+      <p class="text-gray-700">No results found.</p>
+    {% else %}
+      {% for res in results %}
+        <div class="mb-12">
+          <!-- Metadata block -->
+          <div class="p-4 bg-gray-50 rounded-lg border mb-4">
+            <h2 class="text-xl font-semibold text-blue-700 hover:underline mb-2">
+              <a href="{{ res.url }}" target="_blank" rel="noopener noreferrer">{{ res.title }}</a>
+            </h2>
+            <p class="text-sm text-gray-500 mb-2">{{ res.url }}</p>
+            <p><span class="font-semibold">Meta Description:</span> {{ res.structured_content.meta_description }}</p>
+            <p><span class="font-semibold">Main Heading:</span> {{ res.structured_content.main_heading }}</p>
+            <p><span class="font-semibold">Author:</span> {{ res.structured_content.author }}</p>
+            <p><span class="font-semibold">Published Date:</span> {{ res.structured_content.published_date }}</p>
+            <p><span class="font-semibold">Keywords:</span>
+              {% if res.structured_content.keywords is string %}
+                {{ res.structured_content.keywords }}
+              {% else %}
+                {{ res.structured_content.keywords | join(', ') }}
+              {% endif %}
+            </p>
+          </div>
+          <!-- Content excerpt block -->
+          <div class="p-4 bg-white rounded-lg border overflow-auto whitespace-pre-wrap max-h-96 break-words">
+            {{ res.raw_content_excerpt }}
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <a href="/" class="text-blue-600 hover:underline">🔄 New Search</a>
+  </div>
+</body>
+</html>

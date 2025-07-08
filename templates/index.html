@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}DuckDuckGo Scraper{% endblock %}
+{% block content %}
+<div class="max-w-xl mx-auto mt-20 p-6 bg-white rounded-lg shadow-lg">
+  <h1 class="text-2xl font-bold mb-4 text-center">🌐 DuckDuckGo Query Scraper</h1>
+  <form action="/search" method="post" class="space-y-4">
+    <input type="text" name="query" placeholder="Enter search query"
+           class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+    <!-- Proxy list selection -->
+    <div>
+      <label for="proxy_source" class="block text-sm font-medium text-gray-700">Proxy List Source:</label>
+      <select name="proxy_source" id="proxy_source"
+              class="mt-1 block w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        {% for opt in proxy_options %}
+          <option value="{{ opt.url }}">{{ opt.label }} ({{ opt.count }})</option>
+        {% endfor %}
+        <option value="custom">Custom URL</option>
+      </select>
+    </div>
+    <div id="custom_proxy_container" class="hidden">
+      <input type="url" name="custom_proxy_url" id="custom_proxy_url"
+             placeholder="Enter custom proxy list URL"
+             class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    </div>
+    <p class="text-xs text-gray-500">
+      To add new free proxy lists, search on GitHub:
+      <a href="https://github.com/search?q=proxy+list&type=repositories&s=updated&o=desc"
+         target="_blank" rel="noopener noreferrer" class="underline">
+        proxy list repositories
+      </a> or use your own paid list.
+    </p>
+    <button type="submit"
+            class="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Search</button>
+  </form>
+</div>
+{% endblock %}

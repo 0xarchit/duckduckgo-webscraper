@@ -18,7 +18,29 @@ A simple Python-based web scraper that uses DuckDuckGo Lite search to fetch top 
 - Handles DuckDuckGo redirect links and skips ad redirects
 - Gracefully falls back when pages fail to load via proxy
 
-## Installation
+## Web Interface (FastAPI + Tailwind CSS)
+
+A modern web UI to demo and visualize scraping results in your browser.
+
+- Install additional dependencies:
+  ```powershell
+  pip install fastapi uvicorn[standard] jinja2
+  ```
+- Run the FastAPI server:
+  ```powershell
+  uvicorn app:app --reload --host 0.0.0.0 --port 8000
+  ```
+- Open your browser at http://localhost:8000
+- Enter a search query, select or provide a proxy list, and watch the live loading animation while results are fetched and displayed.
+
+The web interface features:
+- Dropdown menu to choose from preset proxy lists or enter a custom URL
+- Loading overlay with spinner and warning message
+- Styled result cards showing metadata and content excerpts
+
+For a minimal, standalone scraper script without FastAPI, see `basescript/scrapper_base.py` in the `basescript/` folder.
+
+## Installation of Script
 
 1. Clone this repository:
    ```powershell
@@ -35,7 +57,7 @@ A simple Python-based web scraper that uses DuckDuckGo Lite search to fetch top 
 
 Run the scraper and enter your search query (single or multi-word):
 ```powershell
-python webscrapper.py
+python basescript\scrapper_base.py
 ```
 
 The tool uses free proxy lists fetched from GitHub, so it can be relatively slow. If you need faster and more reliable scraping, consider using a paid proxy list and update the `fetch_proxies()` URL accordingly.
@@ -767,3 +789,4 @@ The tool uses free proxy lists fetched from GitHub, so it can be relatively slow
 ## License
 
 MIT License
+
