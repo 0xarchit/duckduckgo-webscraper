@@ -1,6 +1,6 @@
 # Cloudflare Worker: Jina AI & Groq Scraper
 
-This Cloudflare Worker fetches search results via [Jina AI](https://jina.ai), retrieves page content, analyzes it with Groq LLM, and rotates through multiple API keys using GetPantry.
+This Cloudflare Worker fetches search results via [Jina AI](https://jina.ai), retrieves page content, analyzes it with Groq LLM API, and rotates through multiple API keys using GetPantry.
 
 ## Setup
 
@@ -28,6 +28,17 @@ This Cloudflare Worker fetches search results via [Jina AI](https://jina.ai), re
      GET https://<your-worker>/?query=your+search+term
      ```
    - The response JSON includes `urls` and detailed `contents` analyses.
+  
+## Demo
+
+Curious how it works before deploying?  
+Try it live with a test query with test api key (max 10 per day):
+
+```bash
+GET https://pagescrape.0xcloud.workers.dev/?query=web+scraping&key=test
+```
+
+🔍 The response will include a object containing a list of relevant URLs and in-depth content analysis powered by Groq LLM.
 
 ## License
 
