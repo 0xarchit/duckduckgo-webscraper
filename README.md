@@ -779,6 +779,12 @@ The tool uses free proxy lists fetched from GitHub, so it can be relatively slow
 ```
 </details>
 
+## Cloudflare Worker Version
+
+A serverless scraper implemented as a Cloudflare Worker that leverages Jina AI for search and Groq LLM for content analysis. Rotate multiple API keys via GetPantry.
+
+See `Cloudflare worker based jina ai & groq scraper/README.md` for full details.
+
 ## Requirements
 
 - Python 3.7+
