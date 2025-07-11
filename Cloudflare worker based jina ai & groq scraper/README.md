@@ -35,7 +35,7 @@ Curious how it works before deploying?
 Try it live with a test query with test api key (max 10 per day):
 
 ```bash
-GET https://pagescrape.0xcloud.workers.dev/?query=web+scraping&key=test
+GET https://webscrape.0xcloud.workers.dev/?key=test&query=your+query
 ```
 
 🔍 The response will include a object containing a list of relevant URLs and in-depth content analysis powered by Groq LLM.
