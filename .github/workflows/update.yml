@@ -33,6 +33,9 @@ jobs:
         run: |
           git config --global user.name "0xArchit"
           git config --global user.email "0xarchit@gmail.com"
+          git fetch origin main
+          git rebase origin/main || echo "Rebase failed — possibly no changes to apply"
           git add .
           git commit -m "Updated ➠ $(date -u +'%Y-%m-%d %H:%M UTC')" || echo "No changes to commit"
-          git push
+          git push origin HEAD:main
+
