@@ -2,7 +2,7 @@ name: Proxy List Updater
 
 on:
   schedule:
-    - cron: "*/30 * * * *" # Runs at the start of 30 mins
+    - cron: "0 * * * *" # Runs at the start of 60mins
   workflow_dispatch: # Allows manual triggering
   push:
     branches:
