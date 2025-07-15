@@ -2,7 +2,7 @@ name: Proxy List Updater
 
 on:
   schedule:
-    - cron: "*/20 * * * *" # Runs at the start of 20 mins
+    - cron: "*/30 * * * *" # Runs at the start of 30 mins
   workflow_dispatch: # Allows manual triggering
   push:
     branches:
@@ -11,7 +11,7 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     permissions:
       contents: write
 
