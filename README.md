@@ -55,6 +55,18 @@ For a minimal, standalone scraper script without FastAPI, see `basescript/scrape
 
 ## Usage
 
+## Proxy List
+
+This project maintains a free, public proxy list for scraping, automatically updated every 20 minutes via GitHub Actions. The list is sourced from multiple providers and tested for working status before publishing.
+
+- **Latest proxy list (auto-updated 20mins):**  
+  https://raw.githubusercontent.com/0xarchit/duckduckgo-webscraper/refs/heads/main/proxies.txt
+
+The update workflow fetches fresh proxies, tests them, and commits the results to the repository every 20 minutes.  
+You can use this list directly in your own scraping projects or scripts.
+
+> **Note:** Free proxies may be slow or unreliable. For best results, consider using a
+
 Run the scraper and enter your search query (single or multi-word):
 ```powershell
 python basescript\scraper_base.py

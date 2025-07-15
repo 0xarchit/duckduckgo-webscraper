@@ -347,7 +347,6 @@ def print_formatted_results(results):
 
 # === MAIN ===
 if __name__ == "__main__":
-    import sys
     import json as pyjson
     print_banner()
     query = input("🔎 Enter your search query: ")
@@ -355,7 +354,9 @@ if __name__ == "__main__":
 
     try:
         results = duckduckgo_search(query, max_results=3)
-        # Output results as JSON
-        print(pyjson.dumps(results, ensure_ascii=False, indent=2))
+        # Output results as JSON to a file
+        with open("scrape_results.json", "w", encoding="utf-8") as f:
+            pyjson.dump(results, f, ensure_ascii=False, indent=2)
+        print("✅ Results saved to scrape_results.json")
     except Exception as main_e:
         print(pyjson.dumps({"error": str(main_e)}))
