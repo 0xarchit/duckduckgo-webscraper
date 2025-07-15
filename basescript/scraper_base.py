@@ -59,7 +59,7 @@ def get_next_working_proxy():
         proxy_dict = {"http": f"http://{proxy}", "https": f"http://{proxy}"}
         print(f"🔌 Testing proxy: {proxy}")
         try:
-            response = requests.get("https://lite.duckduckgo.com/lite/", proxies=proxy_dict, timeout=10)
+            response = requests.get("https://httpbin.org/ip", proxies=proxy_dict, timeout=10)
             if response.status_code == 200:
                 cached_proxy = proxy_dict
                 print(f"✅ Proxy working: {proxy}")

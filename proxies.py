@@ -9,9 +9,9 @@ import time
 
 SOURCES = [
     "https://api.proxyscrape.com/v3/free-proxy-list/get?request=displayproxies&protocol=https",
-    # "https://proxylist.geonode.com/api/proxy-list?protocols=http,https&limit=500",
-    # "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
-    # "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt"
+    "https://proxylist.geonode.com/api/proxy-list?protocols=http,https&limit=500",
+    "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
+    "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt"
 ]
 
 def fetch_proxies(url):
