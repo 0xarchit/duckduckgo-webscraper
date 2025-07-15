@@ -22,12 +22,14 @@ def fetch_proxies():
     global proxy_list, proxy_index
     # source: https://github.com/search?q=proxy+list&type=repositories&s=updated&o=desc
     # url = "https://raw.githubusercontent.com/mmpx12/proxy-list/refs/heads/master/https.txt"
+    # url = "https://raw.githubusercontent.com/theriturajps/proxy-list/refs/heads/main/proxies.txt"
     # url = "https://raw.githubusercontent.com/themiralay/Proxy-List-World/refs/heads/master/data.txt"
     # url = "https://raw.githubusercontent.com/ErcinDedeoglu/proxies/refs/heads/main/proxies/https.txt"
     # url = "https://raw.githubusercontent.com/fyvri/fresh-proxy-list/archive/storage/classic/https.txt"
     # url = "https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/refs/heads/master/https.txt"
     # url = "https://raw.githubusercontent.com/SoliSpirit/proxy-list/refs/heads/main/https.txt"
-    url = "https://raw.githubusercontent.com/databay-labs/free-proxy-list/refs/heads/master/https.txt"
+    # url = "https://raw.githubusercontent.com/databay-labs/free-proxy-list/refs/heads/master/https.txt"
+    url = "https://raw.githubusercontent.com/0xarchit/duckduckgo-webscraper/refs/heads/main/proxies.txt"
     # === Credits To Original Proxy Providers ===
     try:
         print("🚀 Fetching fresh proxy list...")
@@ -345,18 +347,15 @@ def print_formatted_results(results):
 
 # === MAIN ===
 if __name__ == "__main__":
-    
+    import sys
+    import json as pyjson
     print_banner()
     query = input("🔎 Enter your search query: ")
     fetch_proxies()
 
     try:
         results = duckduckgo_search(query, max_results=3)
-        print_formatted_results(results)
-
+        # Output results as JSON
+        print(pyjson.dumps(results, ensure_ascii=False, indent=2))
     except Exception as main_e:
-        print(f"\n🚫 An unexpected error occurred: {main_e}")
-    finally:
-        print("\n" + "="*70)
-        print("                   ✨ Scraping Process Completed ✨")
-        print("="*70)
+        print(pyjson.dumps({"error": str(main_e)}))
