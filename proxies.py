@@ -19,7 +19,7 @@ def fetch_proxies(url):
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
-        response = requests.get(url, headers=headers, timeout=20)
+        response = requests.get(url, headers=headers, timeout=60)
         if response.status_code == 200:
             proxies = set()
             for line in response.text.split('\n'):
@@ -35,7 +35,7 @@ def fetch_proxies(url):
 def test_proxy(proxy):
     proxy_dict = {"http": f"http://{proxy}", "https": f"http://{proxy}"}
     try:
-        response = requests.get("https://httpbin.org/ip", proxies=proxy_dict, timeout=5)
+        response = requests.get("https://lite.duckduckgo.com/lite/", proxies=proxy_dict, timeout=5)
         if response.status_code == 200:
             print(f"✅ Proxy working: {proxy}")
             return True
